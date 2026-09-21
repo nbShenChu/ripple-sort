@@ -575,6 +575,8 @@ namespace ripple_sort {
                 if (rangeLL > COUNTING_SORT_RANGE_LIMIT) return false;
                 if (rangeLL > static_cast<unsigned long long>(n) * 8ull) return false;
 
+                if (rangeLL == 1) return true;
+
                 unsigned int range = static_cast<unsigned int>(rangeLL);
                 if (range <= COUNTING_STACK_BUCKETS)
                     counting_sort_range_stack(data, minV, range, descending);
